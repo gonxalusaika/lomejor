@@ -1,0 +1,34 @@
+<%= form_for(@encuesta, url: admin_encuestas_path) do |f| %>
+  <% if @encuesta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@encuesta.errors.count, "error") %> prohibited this encuesta from being saved:</h2>
+
+      <ul>
+      <% @encuesta.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :pregunta %><br>
+    <%= f.text_area :pregunta %>
+  </div>
+  <h3>Opciones</h3>
+  <div id="opciones">
+    <%= f.fields_for :opciones do |opcion| %>
+      <%= render 'task_fields', :f => opcion %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add opcion', f, :opciones %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
