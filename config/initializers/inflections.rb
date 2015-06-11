@@ -10,6 +10,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.uncountable %w( fish sheep )
 	inflect.irregular 'encuesta', 'encuestas'
 	inflect.irregular 'opcion', 'opciones'
+	inflect.irregular 'categoria', 'categorias'
 end
 
 # These inflection rules are supported but not enabled by default:

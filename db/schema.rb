@@ -11,17 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605125044) do
+ActiveRecord::Schema.define(version: 20150606170748) do
 
-  create_table "encuestas", force: :cascade do |t|
+  create_table "categorias", force: :cascade do |t|
     t.string   "nombre"
-    t.text     "pregunta"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "encuestas", force: :cascade do |t|
+    t.string   "nombre"
+    t.text     "pregunta"
+    t.integer  "categoria_id"
+    t.integer  "respuestas_total"
+    t.date     "fecha_duelo"
+    t.date     "fecha_cierre"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "opciones", force: :cascade do |t|
     t.string   "nombre"
+    t.string   "imagen"
     t.integer  "cantidad_elegida"
     t.integer  "encuesta_id"
     t.datetime "created_at",       null: false

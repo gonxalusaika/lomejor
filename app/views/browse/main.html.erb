@@ -1,0 +1,29 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+<%= javascript_include_tag 'app/lomejor', 'data-turbolinks-track' => true %>
+
+<div data-ng-app="MainApp" data-ng-controller="MainCtrl" data-ng-cloak>
+
+	<div data-ui-view ></div>
+
+	<ul class="side-nav" id="nav-categorias">
+		<li><h4>Categorias</h4>
+			<li data-ng-repeat="categoria in categorias">
+				<a data-ng-click="seleccionarCategoria(categoria)" data-ui-sref="categoria({id: {{categoria.id}} })">{{categoria.nombre}}</a>
+			</li>
+		</li>
+	</ul>
+</div>
+
+<div id="modal_votado" class="modal">
+	<div class="modal-content">
+		<h4>Gracias por votar</h4>
+		<p>Este texto esta de relleno por si se quiere usar para algo</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+	</div>
+</div>
+

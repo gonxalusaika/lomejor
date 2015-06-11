@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @encuesta.nombre %>
-</p>
+<h2>  <%= @encuesta.pregunta %> </h2>
 
-<p>
-  <strong>Pregunta:</strong>
-  <%= @encuesta.pregunta %>
-</p>
+<div class="row">
+<% @encuesta.opciones.each do |opcion| %>
+<div class="col s3">
+	<div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= image_tag opcion.imagen_url %>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= "#{opcion.nombre} - Elegido #{opcion.cantidad_elegida}" %></span>
+        </div>
+      </div>
+  </div>
+<% end %>
+</div>
 
-<%= link_to 'Edit', admin_edit_encuesta_path(@encuesta) %> |
+
+<%= link_to 'Edit', edit_admin_encuesta_path(@encuesta) %> |
 <%= link_to 'Back', admin_encuestas_path %>

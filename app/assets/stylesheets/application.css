@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.margen-arriba{
+	margin-top: 20px;
+}

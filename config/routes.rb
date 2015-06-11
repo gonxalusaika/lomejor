@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  root 'browse#main'
+  get 'browse/acerca_de'
+
   namespace :admin do
     resources :encuestas
+    resources :categorias
+    post 'encuestas/votar' => 'encuestas#votar'
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

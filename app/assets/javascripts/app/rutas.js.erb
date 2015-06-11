@@ -1,0 +1,21 @@
+angular.module('MainApp')
+	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+		$urlRouterProvider.otherwise('/');
+
+		$stateProvider
+			.state('populares', {
+				url: '/',
+				controller: 'PopularesCtrl',
+				templateUrl: '<%= asset_path 'populares.html' %>'
+			})
+			.state('categoria', {
+				url: '/categoria/:id',
+				controller: 'CategoriaCtrl',
+				templateUrl: '<%= asset_path 'categoria_index.html' %>'
+			})
+			.state('encuesta', {
+				url: '/encuesta/:id',
+				controller: 'EncuestaCtrl',
+				templateUrl: '<%= asset_path 'encuesta.html' %>'
+			})
+	}]);

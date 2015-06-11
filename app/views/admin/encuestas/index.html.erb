@@ -16,9 +16,9 @@
       <tr>
         <td><%= encuesta.nombre %></td>
         <td><%= encuesta.pregunta %></td>
-        <td><%= link_to 'Show', encuesta %></td>
-        <td><%= link_to 'Edit', admin_edit_encuesta_path(encuesta) %></td>
-        <td><%= link_to 'Destroy', encuesta, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_encuesta_path(encuesta) %></td>
+        <td><%= link_to 'Edit', edit_admin_encuesta_path(encuesta) %></td>
+        <td><%= link_to 'Destroy', admin_encuesta_path(encuesta), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Encuesta', admin_new_encuesta_path %>
+<%= link_to 'New Encuesta', new_admin_encuesta_path %>

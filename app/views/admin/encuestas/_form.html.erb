@@ -1,4 +1,4 @@
-<%= form_for(@encuesta, url: admin_encuestas_path) do |f| %>
+<%= form_for([:admin, @encuesta]) do |f| %>
   <% if @encuesta.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@encuesta.errors.count, "error") %> prohibited this encuesta from being saved:</h2>
@@ -10,25 +10,32 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
+  <div class="input-field">
     <%= f.label :pregunta %><br>
-    <%= f.text_area :pregunta %>
+    <%= f.text_area :pregunta, class: 'materialize-textarea' %>
+  </div>
+  <div class="input-field">
+    <%= f.collection_select :categoria_id, Categoria.all, :id, :nombre %>
+    <%= f.label :categoria %><br>
   </div>
   <h3>Opciones</h3>
-  <div id="opciones">
-    <%= f.fields_for :opciones do |opcion| %>
-      <%= render 'task_fields', :f => opcion %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add opcion', f, :opciones %>
+    <div class="row">
+    <div id="opciones">
+      <%= f.fields_for :opciones do |opcion| %>
+        <%= render 'opcion_fields', :f => opcion %>
+      <% end %>
     </div>
   </div>
+  <div class="links">
+    <%= link_to_add_association 'Agregar opcion', f, :opciones, class: 'waves-effect waves-light btn' %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Confirmar', class: 'button' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>

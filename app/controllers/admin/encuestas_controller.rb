@@ -29,7 +29,7 @@ class EncuestasController < ApplicationController
 
     respond_to do |format|
       if @encuesta.save
-        format.html { redirect_to @encuesta, notice: 'Encuesta was successfully created.' }
+        format.html { redirect_to ['admin',@encuesta], notice: 'Encuesta was successfully created.' }
         format.json { render :show, status: :created, location: @encuesta }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class EncuestasController < ApplicationController
   def update
     respond_to do |format|
       if @encuesta.update(encuesta_params)
-        format.html { redirect_to @encuesta, notice: 'Encuesta was successfully updated.' }
+        format.html { redirect_to ['admin', @encuesta], notice: 'Encuesta was successfully updated.' }
         format.json { render :show, status: :ok, location: @encuesta }
       else
         format.html { render :edit }
@@ -57,9 +57,14 @@ class EncuestasController < ApplicationController
   def destroy
     @encuesta.destroy
     respond_to do |format|
-      format.html { redirect_to encuestas_url, notice: 'Encuesta was successfully destroyed.' }
+      format.html { redirect_to admin_encuestas_url, notice: 'Encuesta was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def votar
+    suma = Opcion.sumar_voto(params[:opcion])
+    render :json => suma
   end
 
   private
@@ -70,7 +75,7 @@ class EncuestasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def encuesta_params
-      params.require(:encuesta).permit(:nombre, :pregunta, opciones_attributes: [:id, :nombre, :cantidad_elegida, :_destroy])
+      params.require(:encuesta).permit(:nombre, :pregunta, :categoria_id, opciones_attributes: [:id, :nombre, :imagen, :cantidad_elegida, :_destroy])
     end
 end
 end

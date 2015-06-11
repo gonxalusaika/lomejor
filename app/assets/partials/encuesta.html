@@ -1,0 +1,13 @@
+<h1>{{encuesta.pregunta}}</h1>
+<div class="row">
+	<div class="col m4" data-ng-repeat="opcion in encuesta.opciones">
+		<div class="card" data-ng-click="votar(opcion)">
+			<div class="card-image waves-effect waves-block waves-light">
+			  <img data-ng-src="{{opcion.imagen}}"></img>
+			</div>
+			<div class="card-content">
+			  <span class="card-title activator grey-text text-darken-4">{{opcion.nombre}}</span>
+			</div>
+		</div>
+	</div>
+</div>

@@ -2,6 +2,7 @@ class CreateOpciones < ActiveRecord::Migration
   def change
     create_table :opciones do |t|
       t.string :nombre
+      t.string :imagen
       t.integer :cantidad_elegida
       t.references :encuesta
 

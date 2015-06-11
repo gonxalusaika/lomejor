@@ -1,0 +1,18 @@
+<button class="waves-effect waves-light btn margen-arriba right" id="btn-categorias" data-activates="nav-categorias">
+	{{categoria.nombre || 'Categorías'}}
+</button>
+<h1>{{categoria.nombre || 'Las más populares' }}</h1>
+<div class="row">
+	<div class="col m6" data-ng-repeat="encuesta in categoria.encuestas">
+		<div class="card-panel center waves-effect waves-block" data-ng-click="seleccionarEncuesta(encuesta)">
+			{{ encuesta.pregunta }}
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#btn-categorias").sideNav({closeOnClick: true, edge: 'right'});
+});
+</script>

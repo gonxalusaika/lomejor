@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Miencuesta</title>
+  <title>Lo Mejor de lo Mejor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css"></link>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
+<body class="green lighten-5">
+  <nav>
+    <div class="nav-wrapper green">
+    	<div class="container">
+    		<a href="#" class="brand-logo center">Lo Mejor de lo Mejor</a>
+			<ul class="right">
+				
+			</ul>
+	    </div>
+    </div>
+  </nav>
+<div class="container">      
+	<%= yield %>
+</div>
 
 </body>
 </html>
