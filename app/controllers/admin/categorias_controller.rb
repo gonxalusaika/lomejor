@@ -1,5 +1,6 @@
 module Admin
 class CategoriasController < ApplicationController
+  http_basic_authenticate_with name: ENV["LM_LOGIN"], password: ENV["LM_PASS"]
   before_action :set_categoria, only: [:show, :edit, :update, :destroy]
 
   # GET /categorias
