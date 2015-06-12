@@ -1,4 +1,4 @@
-angular.module('MainApp', ['ngResource', 'ui.router'])
+angular.module('MainApp', ['ngResource', 'ui.router', 'ngAnimate'])
 	.controller('MainCtrl', ['$scope', 'Categorias', 'Encuestas', function($scope, Categorias, Encuestas){
 
 		$scope.populares = {};

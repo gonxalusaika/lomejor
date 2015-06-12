@@ -17,3 +17,38 @@
 .margen-arriba{
 	margin-top: 20px;
 }
+
+.ui-view-container {
+  position: relative;
+  height: 65px;
+}
+
+[data-ui-view].ng-enter, [data-ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    transition:all .5s ease-in-out;
+}
+
+[data-ui-view].ng-enter {
+  opacity: 0;
+  left: 1000px;
+}
+
+[data-ui-view].ng-enter-active {
+  opacity: 1;
+  left: 0;
+}
+
+[data-ui-view].ng-leave {
+  opacity: 1;
+  left: 0;
+}
+
+[data-ui-view].ng-leave-active {
+  opacity: 0;
+  left:-1000px;
+}
