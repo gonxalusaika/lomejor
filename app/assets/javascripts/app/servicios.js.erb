@@ -13,6 +13,7 @@ angular.module('MainApp')
 		return $resource('/admin/encuestas/:index/:metodo.json', {}, {
 			populares: {method: 'GET', isArray: true, params: {metodo: 'populares'}},
 			get: {method: 'GET', isArray: false},
-			votar: {method: 'POST', params: {metodo: 'votar'}}
+			votar: {method: 'POST', params: {metodo: 'votar'}},
+			resultados: {method: 'GET', params: {metodo: 'resultados'}}
 		});
 	}]);

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :encuestas
     resources :categorias
     post 'encuestas/votar'
+    get 'encuestas/:id/resultados' => 'encuestas#resultados'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

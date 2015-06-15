@@ -1,7 +1,7 @@
 module Admin
 class EncuestasController < ApplicationController
   http_basic_authenticate_with name: ENV["LM_LOGIN"], password: ENV["LM_PASS"]
-  before_action :set_encuesta, only: [:show, :edit, :update, :destroy]
+  before_action :set_encuesta, only: [:show, :edit, :update, :destroy, :resultados]
 
   # GET /encuestas
   # GET /encuestas.json
@@ -68,6 +68,9 @@ class EncuestasController < ApplicationController
     render :json => suma
   end
 
+  def resultados
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_encuesta
@@ -76,7 +79,7 @@ class EncuestasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def encuesta_params
-      params.require(:encuesta).permit(:nombre, :pregunta, :categoria_id, opciones_attributes: [:id, :nombre, :imagen, :cantidad_elegida, :_destroy])
+      params.require(:encuesta).permit(:nombre, :pregunta, :categoria_id, opciones_attributes: [:id, :nombre, :imagen, :cantidad_elegida, :color, :_destroy])
     end
 end
 end

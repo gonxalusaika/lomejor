@@ -18,4 +18,9 @@ angular.module('MainApp')
 				controller: 'EncuestaCtrl',
 				templateUrl: '<%= asset_path 'encuesta.html' %>'
 			})
+			.state('resultados', {
+				url: '/encuesta/:id/resultados',
+				controller: 'ResultadosCtrl',
+				templateUrl: '<%= asset_path 'resultados.html' %>'
+			})
 	}]);

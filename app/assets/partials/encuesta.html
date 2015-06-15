@@ -1,7 +1,7 @@
 <h1>{{encuesta.pregunta}}</h1>
 <div class="row">
 	<div class="col m4" data-ng-repeat="opcion in encuesta.opciones">
-		<div class="card" data-ng-click="votar(opcion)">
+		<div class="card" data-ng-click="votar(opcion)" data-ui-sref="resultados({id: {{encuesta.id}} })">
 			<div class="card-image waves-effect waves-block waves-light">
 			  <img data-ng-src="{{opcion.imagen}}"></img>
 			</div>

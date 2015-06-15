@@ -3,10 +3,7 @@ angular.module('MainApp')
 		$scope.encuesta = Encuestas.get({index: $stateParams.id});
 
 		$scope.votar = function(opcion){
-			Encuestas.votar({opcion: opcion.id, otra_cosa: "Pepe"});
-			$('#modal_votado').openModal();
-			$scope.categoria = undefined;
-			$scope.encuesta = undefined;
+			Encuestas.votar({opcion: opcion.id});
 		}
 		
 	}]);
