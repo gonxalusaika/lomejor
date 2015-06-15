@@ -1,4 +1,8 @@
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
 angular.module('MainApp')
+	.run(['$http', function($http){
+		$http.defaults.headers.common['Authorization'] = '<%= cabezal_autorizacion %>';
+	}])
 	.factory('Categorias', ['$resource', function($resource){
 		return $resource('/admin/categorias/:index.json', {}, {
 			todos: {method: 'GET', isArray: true},

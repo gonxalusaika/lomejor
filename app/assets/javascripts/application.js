@@ -12,4 +12,5 @@
 //
 //= require jquery_ujs
 //= require cocoon
+//= require app/app
 //= require_tree .

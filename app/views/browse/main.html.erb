@@ -1,6 +1,8 @@
 
 <div data-ng-app="MainApp" data-ng-controller="MainCtrl" data-ng-cloak>
-
+	<button class="waves-effect waves-light btn margen-arriba right" id="btn-categorias" data-activates="nav-categorias">
+		{{categoria.nombre || 'Categorías'}}
+	</button>
 	<div class="ui-view-container">
 		<div data-ui-view ></div>
 	</div>
@@ -8,7 +10,7 @@
 	<ul class="side-nav" id="nav-categorias">
 		<li><h4>Categorias</h4>
 			<li data-ng-repeat="categoria in categorias">
-				<a data-ng-click="seleccionarCategoria(categoria)" data-ui-sref="categoria({id: {{categoria.id}} })">{{categoria.nombre}}</a>
+				<a data-ui-sref="categoria({id: {{categoria.id}} })">{{categoria.nombre}}</a>
 			</li>
 		</li>
 	</ul>
@@ -24,3 +26,8 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#btn-categorias").sideNav({closeOnClick: true, edge: 'right'});
+});
+</script>
